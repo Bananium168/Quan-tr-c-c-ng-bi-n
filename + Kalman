@@ -1,0 +1,32 @@
+
+#include<DHT.h>
+#include<SimpleKalmanFilter.h>
+#define DHTPIN 50
+#define DHTTYPE DHT22
+#define gas A0
+DHT dht(DHTPIN, DHTTYPE);
+
+SimpleKalmanFilter bo_loc(2, 2, 0.001);
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  dht.begin();
+  pinMode(gas, INPUT);
+}
+
+void loop() {
+
+  // Đọc dữ liệu từ DHT11
+  float humidity = dht.readHumidity();
+  float temperature = dht.readTemperature();
+  int gas_val = analogRead(gas);
+  int filter = bo_loc.updateEstimate(gas_val)
+
+ //send data  
+  String a = String(temperature);
+  String b = String(humidity);
+  String c = String(filter);
+  Serial.println(a+","+b+ "," +c);
+  delay(1000);
+} 
