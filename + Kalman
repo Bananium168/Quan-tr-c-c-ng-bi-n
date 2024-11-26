@@ -21,7 +21,7 @@ void loop() {
   float humidity = dht.readHumidity();
   float temperature = dht.readTemperature();
   int gas_val = analogRead(gas);
-  int filter = bo_loc.updateEstimate(gas_val)
+  int filter = bo_loc.updateEstimate(gas_val);
 
  //send data  
   String a = String(temperature);
