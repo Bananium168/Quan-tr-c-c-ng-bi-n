@@ -21,7 +21,7 @@ void printSerialNumber(uint16_t serial0, uint16_t serial1, uint16_t serial2) {
 
 void setup() {
 
-    Serial.begin(115200);
+    Serial.begin(9600);
     while (!Serial) {
         delay(100);
     }
