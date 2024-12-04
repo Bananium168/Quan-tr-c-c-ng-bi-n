@@ -8,12 +8,12 @@
 */
 
 TinyGPS gps;
-SoftwareSerial ss(4, 3);
+SoftwareSerial ss(19, 18);
 
 void setup()
 {
-  Serial.begin(115200);
-  ss.begin(4800);
+  Serial.begin(9600);
+  ss.begin(9600);
   
   Serial.print("Simple TinyGPS library v. "); Serial.println(TinyGPS::library_version());
   Serial.println("by Mikal Hart");
